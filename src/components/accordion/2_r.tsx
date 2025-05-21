@@ -1,5 +1,5 @@
 import { useState } from "react";
-import cx from "./cs";
+import cx from "./cx";
 import data from "./data";
 
 const AccordionItem = ({
@@ -33,7 +33,9 @@ const Accordion2 = () => {
   };
   return (
     <>
-      <h3>#2. React</h3>
+      <h3>
+        #2. React<sub>css로 hidden/show 처리</sub>
+      </h3>
       <ul className={cx("container")}>
         {data.map((d) => (
           <AccordionItem
