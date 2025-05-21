@@ -20,6 +20,8 @@ const AccordionItem = ({
       <div className={cx("tab")} onClick={toggle}>
         {title}
       </div>
+      {/* current가 있을 때만 HTML을 불러옴 */}
+      {/* current가 없을 때는 렌더링이 되지 않으니 SEO 불리 */}
       {current ? <div className={cx("description")}>{description}</div> : null}
     </li>
   );
