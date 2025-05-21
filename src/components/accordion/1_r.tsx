@@ -7,17 +7,17 @@ const AccordionItem = ({
   title,
   description,
   current,
-  toggleItem,
+  toggle,
 }: {
   id: string;
   title: string;
   description: string;
   current: boolean;
-  toggleItem: (id: string) => void;
+  toggle: () => void;
 }) => {
   return (
     <li className={cx("item", { current })} key={id}>
-      <div className={cx("tab")} onClick={() => toggleItem(id)}>
+      <div className={cx("tab")} onClick={toggle}>
         {title}
       </div>
       {current ? <div className={cx("description")}>{description}</div> : null}
@@ -27,7 +27,7 @@ const AccordionItem = ({
 
 const Accordion1 = () => {
   const [currentId, setCurrentId] = useState<string | null>(data[0].id);
-  const toggleItem = (id: string) => {
+  const toggleItem = (id: string) => () => {
     setCurrentId((prev) => (prev === id ? null : id));
   };
   return (
@@ -39,7 +39,7 @@ const Accordion1 = () => {
             key={d.id}
             {...d}
             current={currentId === d.id}
-            toggleItem={toggleItem}
+            toggle={toggleItem(d.id)}
           />
         ))}
       </ul>
