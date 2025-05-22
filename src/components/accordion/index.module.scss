@@ -16,7 +16,7 @@
     cursor: pointer;
 
     &::before {
-      content: '+';
+      content: "+";
       margin: 0 8px 0 -5px;
     }
   }
@@ -34,7 +34,7 @@
         background-color: #ace;
 
         &::before {
-          content: '-';
+          content: "-";
         }
       }
     }
@@ -63,6 +63,8 @@
     &.current .description {
       padding: 15px;
       border-bottom-width: 1px;
+      // 각각의 높이를 지정준다면 더 부드럽게 전환 가능
+      // 하지만 반응형까지 고려한다면 쉽지 않음
       max-height: 300px;
     }
   }
@@ -87,7 +89,7 @@
         background-color: #ace;
 
         &::before {
-          content: '-';
+          content: "-";
         }
       }
       ~ .description {
@@ -97,7 +99,7 @@
       }
     }
   }
-  
+
   details[open] summary {
     background-color: #ace;
     padding: 15px;
@@ -109,17 +111,16 @@
     border-bottom-width: 0;
   }
 
-  summary{
+  summary {
     padding: 15px;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
   }
 
-  summary::marker{
+  summary::marker {
     content: "+ ";
   }
   details[open] summary::marker {
     content: "- ";
   }
 }
-
